@@ -16,7 +16,7 @@ The main application comes with a DentalCR_SystemUpdater_1.1.2.exe that can upda
 The STM32 is not code protected and firmware (bootloader + main application) was dumped with STM32CubeProgrammer and ST-Link-V2 clone. This is FLASH.bin in the /Firmware-dump-folder.
 
 Here's a rough overview of the different modules & circuit boards in the machine:
- ![Screenshot](system-diagram.png)
+ ![Screenshot](System-diagram.png)
 
 When using the machine, the exposed image plate (IP) is placed in the extending drawer in the front of the machine. The machine reads a RFID-tag stuck on the back of the IP.
 A combination of the UID and the data blocks tells the machine what size the IP is and some production date (serial/date of manufacture) etc.
