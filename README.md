@@ -3,7 +3,7 @@
 
  ![Screenshot](firecr.png)
 
-The device is run by a STM32F427IIT6-CPU
+The device is run by a STM32F427IIT6-CPU [datasheet](STM32F427IIT6.pdf)
 
 Interfacing is done with a color LCD touchscreen on the front. Here you can adjust settings for scanning quality, network settings and see a preview of the scan.
 
