@@ -7,13 +7,16 @@ The device is run by a STM32F427IIT6-CPU [datasheet](STM32F427IIT6.pdf)
 
 Interfacing is done with a color LCD touchscreen on the front. Here you can adjust settings for scanning quality, network settings and see a preview of the scan.
 
-The scanning of the PSP Imaging plate is done by a Altera EP4CE15E22C8N Cyclone IV-FPGA which interfaces to the STM32 CPU over some kind of parallel interface.
+The scanning of the PSP Imaging plate is done by an Altera EP4CE15E22C8N Cyclone IV-FPGA which interfaces to the STM32 CPU over some kind of parallel interface.
 
 The main graphical resources is held on MicroSD-card and scans are also saved to SD-card, as well as streamed over Ethernet to the controlling application.
 
 The main application comes with a DentalCR_SystemUpdater_1.1.2.exe that can update the target STM32/FPGA/Graphics etc. The unpacked data from the .exe is found in this repository.
 
 The STM32 is not code protected and firmware (bootloader + main application) was dumped with STM32CubeProgrammer and ST-Link-V2 clone. This is FLASH.bin in the /Firmware-dump-folder.
+
+Here's a rough overview of the different modules & circuit boards in the machine:
+ ![Screenshot](system-diagram.png)
 
 When using the machine, the exposed image plate (IP) is placed in the extending drawer in the front of the machine. The machine reads a RFID-tag stuck on the back of the IP.
 A combination of the UID and the data blocks tells the machine what size the IP is and some production date (serial/date of manufacture) etc.
