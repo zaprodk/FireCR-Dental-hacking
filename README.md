@@ -1,6 +1,8 @@
 # FireCR-Dental-hacking
  Hacking the DigiRay/3DISC FireCR scanner for fun
 
+ ![Screenshot](firecr.png)
+
 The device is run by a STM32F427IIT6-CPU with a color LCD touchscreen.
 
 The scanning of the PSP Imaging plate is done by a Altera EP4CE15E22C8N Cyclone IV-FPGA
