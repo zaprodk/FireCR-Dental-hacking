@@ -9,19 +9,19 @@ Interfacing is done with a color LCD touchscreen on the front. Here you can adju
 
 The scanning of the PSP Imaging plate is done by an Altera EP4CE15E22C8N Cyclone IV-FPGA which interfaces to the STM32 CPU over some kind of parallel interface.
 
-The main graphical resources is held on MicroSD-card and scans are also saved to SD-card, as well as streamed over Ethernet to the controlling application.
+The main graphical resources is held on a 16GB MicroSD-card and scans are also saved to SD-card, as well as streamed over Ethernet to the controlling application. The contents of the MicroSD has been dumped with dd and trimmed down to ~2GB after removing unused space in the file (the device never stores anything past 2GB) - The card does not have a known file system but is rather adressed as a raw flash memory device. The dump can be downloaded [here](https://www.dropbox.com/scl/fi/fp8epq7omoyqgh0zt19y5/image-small.dd?rlkey=qb6tj756gdrcuu5y8aymbw7fi&dl=0)
 
-The main application comes with a DentalCR_SystemUpdater_1.1.2.exe that can update the target STM32/FPGA/Graphics etc. The unpacked data from the .exe is found in this repository.
+The main PC-application ships with a DentalCR_SystemUpdater_1.1.2.exe that can update the target STM32/FPGA/Graphics etc. in case it needs an upgrade. The unpacked data from the .exe is found in this repository.
 
-The STM32 is not code protected and firmware (bootloader + main application) was dumped with STM32CubeProgrammer and ST-Link-V2 clone. This is FLASH.bin in the /Firmware-dump-folder.
+The STM32 is not code protected and firmware (bootloader + main application) was dumped with STM32CubeProgrammer and ST-Link-V2 clone. This is the FLASH.bin in the /Firmware-dump-folder.
 
 Here's a rough overview of the different modules & circuit boards in the machine:
- ![Screenshot](system-diagram.png)
+ ![Screenshot](System-diagram.png)
 
-When using the machine, the exposed image plate (IP) is placed in the extending drawer in the front of the machine. The machine reads a RFID-tag stuck on the back of the IP.
+To use the machine, the exposed image plate (IP) is placed in the extending drawer in the front of the machine. The machine reads a RFID-tag stuck on the back of the IP.
 A combination of the UID and the data blocks tells the machine what size the IP is and some production date (serial/date of manufacture) etc.
 
-The RFID tag is readable with a Proxmark3 device and can be flashed onto a "Magic" card with changeable UID, as using a generic Icode SLIX RFID card will not work. It has to have the correct UID to work. This is used as a kind of Vendor lock-in we believe.
+The RFID tag is readable with a Proxmark3 device and can be flashed onto a [Magic](https://lab401.com/products/icode-sli-slix-compatible-uid-modifiable) card with changeable UID, as using a generic Icode SLIX RFID card will not work. It has to have the correct UID to work. This is used as a kind of Vendor lock-in we believe.
 There is 28 data-blocks on the RFID card, where only the first 4 is used. Data in these blocks does not carry any resemblance to the data the machine shows or the UID, so maybe it's encrypted (xor) or similar. Can we reverse-engineer this?
 
 The machine has different sizes of IPs it will recognise and scan. We have imaging plates size 0, 2, 3 and 4. Size 4 is physically too large to fit in the machine, but it still recognises it. Trying to scan it will abort the scan after a moment. There's an intermediary size called 4c, which is the largest the machine will scan. Can we deduct from the RFID dumps and firmware how a 4c plate will need to be coded to be recognised? These plates are expensive and as we already have a handful of Size 4 available, if it was possible to cut the to the smaller 4c size and trick the machine into scanning them, that would be kind of cool.
