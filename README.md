@@ -11,14 +11,14 @@ The scanning of the PSP Imaging plate is done by an Altera EP4CE15E22C8N Cyclone
 
 The main graphical resources is held on a 16GB MicroSD-card and scans are also saved to SD-card, as well as streamed over Ethernet to the controlling application. The contents of the MicroSD has been dumped with dd and trimmed down to ~2GB after removing unused space in the file (the device never stores anything past 2GB) - The card does not have a file system but is rather adressed as a raw flash device. 
 
-The main application comes with a DentalCR_SystemUpdater_1.1.2.exe that can update the target STM32/FPGA/Graphics etc. The unpacked data from the .exe is found in this repository.
+The main PC-application ships with a DentalCR_SystemUpdater_1.1.2.exe that can update the target STM32/FPGA/Graphics etc. in case it needs an upgrade. The unpacked data from the .exe is found in this repository.
 
-The STM32 is not code protected and firmware (bootloader + main application) was dumped with STM32CubeProgrammer and ST-Link-V2 clone. This is FLASH.bin in the /Firmware-dump-folder.
+The STM32 is not code protected and firmware (bootloader + main application) was dumped with STM32CubeProgrammer and ST-Link-V2 clone. This is the FLASH.bin in the /Firmware-dump-folder.
 
 Here's a rough overview of the different modules & circuit boards in the machine:
  ![Screenshot](System-diagram.png)
 
-When using the machine, the exposed image plate (IP) is placed in the extending drawer in the front of the machine. The machine reads a RFID-tag stuck on the back of the IP.
+To use the machine, the exposed image plate (IP) is placed in the extending drawer in the front of the machine. The machine reads a RFID-tag stuck on the back of the IP.
 A combination of the UID and the data blocks tells the machine what size the IP is and some production date (serial/date of manufacture) etc.
 
 The RFID tag is readable with a Proxmark3 device and can be flashed onto a [Magic](https://lab401.com/products/icode-sli-slix-compatible-uid-modifiable) card with changeable UID, as using a generic Icode SLIX RFID card will not work. It has to have the correct UID to work. This is used as a kind of Vendor lock-in we believe.
