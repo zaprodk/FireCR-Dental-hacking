@@ -23,4 +23,4 @@ There is 28 data-blocks on the RFID card, where only the first 4 is used. Data i
 
 The machine has different sizes of IPs it will recognise and scan. We have imaging plates size 0, 2, 3 and 4. Size 4 is physically too large to fit in the machine, but it still recognises it. Trying to scan it will abort the scan after a moment. There's an intermediary size called 4c, which is the largest the machine will scan. Can we deduct from the RFID dumps and firmware how a 4c plate will need to be coded to be recognised? These plates are expensive and as we already have a handful of Size 4 available, if it was possible to cut the to the smaller 4c size and trick the machine into scanning them, that would be kind of cool.
 
-Here's a [document] that describes the data on the RFID tags we have at our disposal: (https://docs.google.com/spreadsheets/d/1aVb626r9JBMXpx-VkAXOxXye-787FME-MILazqtd8uc/edit?usp=sharing)
+Here's a document that describes the data on the RFID tags we have at our disposal: [link](https://docs.google.com/spreadsheets/d/1aVb626r9JBMXpx-VkAXOxXye-787FME-MILazqtd8uc/edit?usp=sharing)
