@@ -9,7 +9,7 @@ Interfacing is done with a color LCD touchscreen on the front. Here you can adju
 
 The scanning of the PSP Imaging plate is done by an Altera EP4CE15E22C8N Cyclone IV-FPGA which interfaces to the STM32 CPU over some kind of parallel interface.
 
-The main graphical resources is held on a 16GB MicroSD-card and scans are also saved to SD-card, as well as streamed over Ethernet to the controlling application. The contents of the MicroSD has been dumped with dd and trimmed down to ~2GB after removing unused space in the file (the device never stores anything past 2GB) - The card does not have a file system but is rather adressed as a raw flash device. 
+The main graphical resources is held on a 16GB MicroSD-card and scans are also saved to SD-card, as well as streamed over Ethernet to the controlling application. The contents of the MicroSD has been dumped with dd and trimmed down to ~2GB after removing unused space in the file (the device never stores anything past 2GB) - The card does not have a known file system but is rather adressed as a raw flash memory device. The dump can be downloaded [here](https://www.dropbox.com/scl/fi/fp8epq7omoyqgh0zt19y5/image-small.dd?rlkey=qb6tj756gdrcuu5y8aymbw7fi&dl=0)
 
 The main PC-application ships with a DentalCR_SystemUpdater_1.1.2.exe that can update the target STM32/FPGA/Graphics etc. in case it needs an upgrade. The unpacked data from the .exe is found in this repository.
 
