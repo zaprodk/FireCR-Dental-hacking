@@ -32,4 +32,4 @@ Here's a document that describes the data on the RFID tags we have at our dispos
 
 Dumping the SRAM from a cold booted machine reading two different IPs leads to a handful of differences in the dumps.
 
-There's a few references here and there that changes, mostly just the raw UID appearing here and there for different usage in the firmware, but most notably there's a large block of data at address 0x10019BC0 to 0x2002B83F that is changed. This looks like some code obfuscation - is this the decryption algorithm?
+There's a few references here and there that changes, mostly just the raw UID appearing here and there for different usage in the firmware, but most notably there's a large block of data at address 0x20029BC0 to 0x2002B83F that is changed every second or third byte. This looks like some weird code obfuscation - is this the decryption algorithm?
