@@ -32,4 +32,7 @@ Here's a document that describes the data on the RFID tags we have at our dispos
 
 Dumping the SRAM from a cold booted machine reading two different IPs leads to a handful of differences in the dumps.
 
-There's a few references here and there that changes, mostly just the raw UID appearing here and there for different usage in the firmware, but most notably there's a large block of data at address 0x20029BC0 to 0x2002B83F that is changed every second or third byte. This looks like some weird code obfuscation - is this the decryption algorithm?
+~~There's a few references here and there that changes, mostly just the raw UID appearing here and there for different usage in the firmware, but most notably there's a large block of data at address 0x20029BC0 to 0x2002B83F that is changed every second or third byte. This looks like some weird code obfuscation - is this the decryption algorithm?~~
+
+Update 20/2-24: A person helped analyze the dump of the STM32 binary and a dump of its SRAM and came to the conclusion that the firmware uses an encryption scheme called ARIA 256bit ECB. It's a symmetrical encryption key, so you can go from RFID blocks to the UID and vice versa. What the RFID is decoded into is still unclear.
+This person has been able to generate the 4 data blocks for the RFID key from the UID, as well as generate from a random UID.
